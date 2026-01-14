@@ -15,6 +15,9 @@ Scripts for organizing and analyzing phenotypic variation
 ### [Quality control](2.QC_MAPPING_VARIANTS/)
 Scripts for assessing read quality and filtering raw reads, then mapping reads, filtering, and assessing mapping quality
 
+### [Admixture and Genomic PCA](3.admixture-pca/)
+Scripts for running admixture and a genomic PCA and some basic visualization
+
 
 
 

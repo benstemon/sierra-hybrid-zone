@@ -38,7 +38,7 @@
 * Also see [`samplename_changer.txt`](data/samplename_changer.txt), which is a basic text file with info for name substitution.
 
 #### 4. Filter variants
-* see [`4.filter_variants.sh`](scripts/scripts/4.filter_variants.sh)
+* see [`4.filter_variants.sh`](scripts/4.filter_variants.sh)
 * Calls variants with bcftools
 
 #### Bonus script

@@ -10,7 +10,7 @@ Uses:
 * Reorders phenotypes to match sample order in vcf
 * Filters out parent taxa and the lone sample with genetic data but no phenotypic data
 * Tests each phenotype for normality and, if significantly different from normality, attempts several different transformations. If no transformation makes it better, keep default.
-* Generates a list of excluded samples [`exluded_samples_GWAS.txt`](data/exluded_samples_GWAS.txt) which is used downstream to generate the relatedness matrix without including samples not included in the GWAS (parent species and the one missing phenotype hybrid sample)
+* Generates a list of excluded samples [`excluded_samples_GWAS.txt`](data/excluded_samples_GWAS.txt) which is used downstream to generate the relatedness matrix without including samples not included in the GWAS (parent species and the one missing phenotype hybrid sample)
 
 #### 2. Phase and impute data
 * see [`2.phase-impute-beagle-gemma-sierras.sh`](scripts/2.phase-impute-beagle-gemma-sierras.sh)

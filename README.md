@@ -18,8 +18,5 @@ Scripts for assessing read quality and filtering raw reads, then mapping reads, 
 ### [Admixture and Genomic PCA](3.admixture-pca/)
 Scripts for running admixture and a genomic PCA and some basic visualization
 
-
-
-
-### [Analysis](4_analysis/)
-Contains scripts and code to conduct all further analysis on files generated thus far.
+### [GWAS](4.gemma/)
+Scripts for imputing genotypes, performing GWAS, and plotting results (among other related things)

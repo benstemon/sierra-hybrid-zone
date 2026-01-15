@@ -1,8 +1,8 @@
 # GWAS
 
 Uses:
-2.QC_MAPPING_VARIANTS
-3.admixture-pca
+[2.QC_MAPPING_VARIANTS](~/2.QC_MAPPING_VARIANTS)
+[3.admixture-pca](~/3.admixture-pca)
 
 
 #### 1. Clean up samples included and transform traits as necessary

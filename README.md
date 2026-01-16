@@ -42,6 +42,7 @@ Scripts for conducting pollinator visual modeling for honeybees and humnmingbird
 Scripts for estimating bayesian genomic clines with bgchm
 
 ### [Elevation re-estimates and GLM](11.elevation_plots)
+Fix elevation estimates for samples and run elevation vs. admixture GLMs
 
 ### [DFR-like gene tree](12.DFRlike-genetree)
-
+Estimate the gene tree for DFR, DFR-like, and ANR

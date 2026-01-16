@@ -1,6 +1,6 @@
 ## Admixture and Genomic PCA
 
-### Note: these scripts make use of data from additional repos, including from [FigShare](Figshare link), [`1.phenotype_curation`](../1.phenotype_curation), and [`11.elevation_plots`]((../11.elevation_plots/)).
+Note: these scripts make use of data from [`1.phenotype_curation`](~/1.phenotype_curation), and [`11.elevation_plots`]((../11.elevation_plots/))
 
 #### 1. Convert vcf to admixture data format and run admixture
 * see [`1.vcf2admixture.sh`](scripts/1.vcf2admixture.sh)

@@ -1,6 +1,6 @@
 # Phenotype curation
 
-## Note: these scripts make use of data from additional repos, including from [FigShare](Figshare link), [`3.admixture-pca`](../3.admixture-pca/) and [`11.elevation_plots`]((../11.elevation_plots/)).
+These scripts make use of data from the supplemental data repo, as well as [`3.admixture-pca`](../3.admixture-pca/) and [`11.elevation_plots`]((../11.elevation_plots/))
 
 ### 1. Generate modified hue values from raw reflectance data.
 * see [`1.generate_sierras_chroma_hue.R`](scripts/1.generate_sierras_chroma_hue.R)

@@ -1,10 +1,8 @@
 # Pigment analysis
 
 Additionally uses data from:
-[1.phenotype_curation](~/1.phenotype_curation)
-[7.ancestryHMM](~/7.ancestryHMM)
-[9.visualmodels](~/9.visualmodels)
-Particularly for making some of the plots (step 5)
+[1.phenotype_curation](~/1.phenotype_curation), [7.ancestryHMM](~/7.ancestryHMM), and [9.visualmodels](~/9.visualmodels), 
+particularly for making some of the plots (step 5)
 
 
 #### 1. Generate parent allele frequency files

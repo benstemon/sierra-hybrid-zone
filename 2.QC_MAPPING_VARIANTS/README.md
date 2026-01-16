@@ -1,7 +1,5 @@
 ## QC and mapping, deduplication, overlap clipping, and summary stats
 
-### Note: this pipeline requires the use of conda installs of various softwares. Ensure the proper conda environments are installed prior to use.
-
 ### Quality control pipeline
 1. Run QC of raw sequencing reads (fastqc) and summarize (multiqc)
 2. Merge Illumina lanes by forward and reverse reads

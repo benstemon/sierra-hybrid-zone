@@ -18,6 +18,6 @@ reference genome.fai file
 * uses files generated from previous step
 
 #### 3. Summarize posteriors and generate plots
-* see [`3.plot_ancHMM.R`][scripts/3.plot_ancHMM.R]
+* see [`3.plot_ancHMM.R`](scripts/3.plot_ancHMM.R)
 * uses posterior results from step 2: can download these from the online supplemental data repo
 * also uses [`combined phenotype dataset`](~/1.phenotype_curation/data/allcombined_phenotype_admixture_subpopulations_spreadsheet-sierras.csv)

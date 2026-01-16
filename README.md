@@ -9,6 +9,8 @@ The raw reads associated with this study are stored in the SRA repository under 
 Note that this study uses the *Penstemon davidsonii* genome as a reference for mapping. Information about that genome can be found in [`Ostevik et al. 2024`](https://academic.oup.com/g3journal/article/14/3/jkad296/7503391), and the genome and associated materials are stored in the SRA here: [`https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1010203`](https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1010203)
 
 ## Directory setup
+Directories are generally in order of analysis pipeline, though some cross-contamination cannot be helped
+
 ### [Phenotype curation](1.phenotype_curation/)
 Scripts for organizing and analyzing phenotypic variation
 

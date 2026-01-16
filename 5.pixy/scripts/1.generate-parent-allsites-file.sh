@@ -17,8 +17,8 @@ conda activate mapping_etc
 module load vcftools
 
 # Information for important files and parameters
-refgenome="/work/bs66/project_compare_genomes/annot_Pdavidsonii_genome.1mb.fasta"
-bamdir="/work/bs66/sierra_hybrids/mapped_filtered_bams_sierras"
+refgenome="annot_Pdavidsonii_genome.1mb.fasta"
+bamdir="mapped_filtered_bams_sierras"
 newparents="newberryi-fst-pops.txt"
 davparents="davidsonii-fst-pops.txt"
 numthreads=8

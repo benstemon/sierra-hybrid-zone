@@ -16,7 +16,7 @@ source /home/bs66/.bash_profile
 conda activate gwas
 
 # Paths
-gemma="/work/bs66/software/GEMMA/gemma-0.98.5"
+gemma="gemma-0.98.5"
 bimbam="../gemmasnps-.05missing-NOPARENTS.bimbam"
 GTmatrix="../GTMATRIX-NOPARENT-LDpruned.cXX.txt"
 

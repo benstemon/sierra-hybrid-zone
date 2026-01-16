@@ -29,10 +29,10 @@ module load vcftools
 
 # Hard path to the base directory, reference genome, and mapped, filtered reads
 # Ensure basedir has "/" at end
-basedir="/work/bs66/sierra_hybrids/"
-refgenome="/work/bs66/project_compare_genomes/annot_Pdavidsonii_genome.1mb.fasta"
-mapped_filtered_reads="/work/bs66/sierra_hybrids/mapped_filtered_bams_sierras"
-newsamplenames="/work/bs66/sierra_hybrids/samplename_changer.txt"
+basedir="sierra_hybrids/"
+refgenome="annot_Pdavidsonii_genome.1mb.fasta"
+mapped_filtered_reads="mapped_filtered_bams_sierras"
+newsamplenames="samplename_changer.txt"
 
 
 # Change this to match number of cores allocated

@@ -1,8 +1,8 @@
 # Genomic differentiation and divergence
 
-Additionally uses:
-GWAS results
-reference genome annotations
+Additionally uses data from:
+[4.gemma](~/4.gemma)
+Reference genome annotations (get from supplemental data repo)
 
 #### 1. Generate all-sites .vcf file
 * see [`1.generate-parent-allsites-file.sh`](scripts/1.generate-parent-allsites-file.sh)

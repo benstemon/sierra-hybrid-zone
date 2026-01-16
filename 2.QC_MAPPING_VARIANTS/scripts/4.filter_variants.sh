@@ -25,7 +25,7 @@ conda activate mapping_etc
 module load vcftools
 
 # Hard path to the unfiltered .vcf file
-unfiltered_vcf="/work/bs66/sierra_hybrids/VCFs-sierras/unfiltered_vcf.gz"
+unfiltered_vcf="unfiltered_vcf.gz"
 
 # Change this to match number of cores allocated
 numthreads=12

@@ -25,13 +25,13 @@ conda activate mapping_etc
 module load java 
 
 # Path to .vcf file to prune
-invcf="/work/bs66/sierra_hybrids/VCFs-sierras/finalfilter.vcf.gz"
+invcf="finalfilter.vcf.gz"
 
 # Prefix for output (filters and imputation)
 myprefix="gemmasnps-.05missing"
 
 # Path to the compiled local beagle software
-beagle="/work/bs66/software/beagle/beagle.22Jul22.46e.jar"
+beagle="beagle.22Jul22.46e.jar"
 
 
 ##################

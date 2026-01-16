@@ -16,7 +16,7 @@ source /home/bs66/.bash_profile
 module load vcftools
 
 
-invcf="/work/bs66/sierra_hybrids/gemma_sierras/gemmasnps-.05missing.imputed.vcf.gz"
+invcf="gemmasnps-.05missing.imputed.vcf.gz"
 
 # davidsonii
 vcftools --gzvcf $invcf \

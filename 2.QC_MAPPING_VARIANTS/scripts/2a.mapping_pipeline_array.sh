@@ -26,9 +26,9 @@ conda activate mapping_etc
 
 # Hard path to the filtered reads and reference genome
 # Ensure final "/" at the end of basedir
-basedir="/work/bs66/sierra_hybrids/"
-filtered_reads="/work/bs66/sierra_hybrids/filtered_reads_sierras"
-refgenome="/work/bs66/project_compare_genomes/annot_Pdavidsonii_genome.1mb.fasta"
+basedir="sierra_hybrids/"
+filtered_reads="filtered_reads_sierras"
+refgenome="annot_Pdavidsonii_genome.1mb.fasta"
 numthreads=4 # Change this to match number of cores allocated
 
 

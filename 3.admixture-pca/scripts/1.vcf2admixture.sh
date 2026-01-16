@@ -25,7 +25,7 @@ conda activate admixture
 
 # Path to filtered vcf and other parameters for filtering LD, and threads
 # Parameters for LD pruning pulled from Walsh et al. 2023 (https://github.com/joanam/scripts/blob/master/ldPruning.sh)
-invcf="/work/bs66/sierra_hybrids/VCFs-sierras/finalfilter.vcf.gz"
+invcf="finalfilter.vcf.gz"
 windowsize=50
 slidesize=10
 r2thresh=0.1

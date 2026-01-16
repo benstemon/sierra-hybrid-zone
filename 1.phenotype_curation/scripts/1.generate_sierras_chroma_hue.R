@@ -30,8 +30,8 @@ library(pavo)
 library(tidyverse)
 
 #load spec data
-# This is available in FigShare
-rawdata <- getspec("~/PHENOTYPING/spec_data/sierras_spec_data/",
+# This is available in supplemental data repo
+rawdata <- getspec("~/sierras_spec_data/",
                    ext = "txt")
 
 

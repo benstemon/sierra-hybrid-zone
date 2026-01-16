@@ -1,6 +1,6 @@
 # GWAS
 
-Uses:
+Additionally uses data from:
 [2.QC_MAPPING_VARIANTS](~/2.QC_MAPPING_VARIANTS)
 [3.admixture-pca](~/3.admixture-pca)
 

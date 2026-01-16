@@ -7,7 +7,7 @@ library(tidyverse)
 # ULMM LOCI
 ####
 # Set directory
-setwd("~/4.gemma/results/")
+setwd("~/4.gemma/")
 
 #Phase 1. Extract significant SNPs
 ################################################################################

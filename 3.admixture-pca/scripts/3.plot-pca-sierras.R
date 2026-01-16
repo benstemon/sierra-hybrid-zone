@@ -1,12 +1,13 @@
-setwd("data/")
 library(tidyverse)
 library(ggpubr)
+
+setwd("~/3.admixture-pca/data")
 
 # File setup and organization
 ################################################################################
 # Read in the subpopulations phenotype file
 # This will help with plotting
-subpopulations <- read_csv("~/1.phenotype_curation/allcombined_phenotype_admixture_subpopulations_spreadsheet-sierras.csv") %>%
+subpopulations <- read_csv("~/1.phenotype_curation/data/allcombined_phenotype_admixture_subpopulations_spreadsheet-sierras.csv") %>%
   filter(region == "sierras")
 
 # Read in eigenvectors and eigenvalues
@@ -26,7 +27,7 @@ pca <- read_delim("PCA.eigenvec", col_names = T, delim = "\t") %>%
                                     subpopulation == "hybrids_gemlakes" ~ "hybrid (GL)"))
 
 # Write these PC results to a new file (helps with downstream analyses)
-# write.csv(pca, file = "PCA_values_phenotypes_admixture-sierras.csv", row.names = F)
+write.csv(pca, file = "PCA_values_phenotypes_admixture-sierras.csv", row.names = F)
 
 # Check which sample is missing in subpopulations (admixture)
 # Turns out its 133-013 -- filter that out before plotting
@@ -44,7 +45,7 @@ eigenval <- scan("PCA.eigenval")
 
 # Convert eigenvalues to % variance explained
 pve <- data.frame(PC = 1:10, pve = eigenval/sum(eigenval)*100)
-# write.csv(pve, file = "PVE-eigenvalues.csv", row.names = F)
+write.csv(pve, file = "PVE-eigenvalues.csv", row.names = F)
 ################################################################################
 
 

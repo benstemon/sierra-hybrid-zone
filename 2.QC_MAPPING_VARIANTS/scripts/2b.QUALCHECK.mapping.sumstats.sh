@@ -19,9 +19,9 @@ conda activate mapping_etc
 
 
 # Hard paths to reference genome, input, and output directories
-refgenome="/work/bs66/project_compare_genomes/annot_Pdavidsonii_genome.1mb.fasta"
-bamdir="/work/bs66/sierra_hybrids/mapped_filtered_bams_sierras"
-outdir="/work/bs66/sierra_hybrids/sumstats_mapped_filtered_bams_sierras"
+refgenome="annot_Pdavidsonii_genome.1mb.fasta"
+bamdir="mapped_filtered_bams_sierras"
+outdir="sumstats_mapped_filtered_bams_sierras"
 
 
 # .bam file summary stats

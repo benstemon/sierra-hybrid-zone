@@ -24,7 +24,7 @@ source /home/bs66/.bash_profile
 conda activate gwas
 
 # Path to GEMMA executable
-gemma="/work/bs66/software/GEMMA/gemma-0.98.5"
+gemma="gemma-0.98.5"
 
 # Specify bimbam input file
 # Remember -- the LD pruning file is ONLY for the relatedness matrix

@@ -18,13 +18,13 @@ source /home/bs66/.bashrc
 source /home/bs66/.bash_profile
 
 # Path to qctool executable
-qctool="/work/bs66/software/qctools/qctool"
+qctool="qctool"
 
 # Path to GEMMA executable
-gemma="/work/bs66/software/GEMMA/gemma-0.98.5"
+gemma="gemma-0.98.5"
 
-# Path to a phenotype file
-pheno1="phenotypes_noparents_normalized/GEMMA_INPUTFILE.modified_hue.txt"
+# Path to a phenotype file -- can be anything
+pheno1="GEMMA_INPUTFILE.modified_hue.txt"
 
 
 ###################

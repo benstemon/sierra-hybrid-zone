@@ -1,5 +1,5 @@
 # This is a collection of plots based on phenotypic data
-setwd("1.phenotype_curation/")
+setwd("~/1.phenotype_curation/")
 library(tidyverse)
 
 # correlations
@@ -32,9 +32,9 @@ rgbdf <- read_delim("data/ALLSAMPLES_sierras_color_chroma_hue_averageflowers.csv
  select(c("newID", "rgb"))
 
 # Read in admixture proportion data (from admixture analysis directory)
-samples <- read.table("~/3.admixture-pca/admixture/extracted.admixture_prep_LD-50-10-0.1.fam", header = F)[,1] %>%
+samples <- read.table("~/3.admixture-pca/data/extracted.admixture_prep_LD-50-10-0.1.fam", header = F)[,1] %>%
  str_remove(., "BWS_")
-qmat <- read.table("~/3.admixture-pca/admixture/extracted.admixture_prep_LD-50-10-0.1.2.Q")
+qmat <- read.table("~/3.admixture-pca/data/extracted.admixture_prep_LD-50-10-0.1.2.Q")
 colnames(qmat) <- paste("K", seq(1:ncol(qmat)), sep="")
 qmat$newID <- samples
 
@@ -65,7 +65,7 @@ nrow(admix_included %>% filter(class == "hybrid"))
 
 # Write this combined matrix to a new file
 write.csv(admix_included,
-         file = "allcombined_phenotype_admixture_subpopulations_spreadsheet-sierras.csv",
+         file = "data/allcombined_phenotype_admixture_subpopulations_spreadsheet-sierras.csv",
          row.names = F)
 
 
@@ -101,7 +101,7 @@ importance_rf <- as_tibble(importance(rf_model), rownames = "Variable") %>%
   mutate(MeanDecreaseAccuracy = ifelse(MeanDecreaseAccuracy < 0, 0, MeanDecreaseAccuracy)) %>%
   mutate(RelativeImportance = MeanDecreaseAccuracy / sum(MeanDecreaseAccuracy))
 
-# write_csv(importance_rf %>% arrange(desc(MeanDecreaseAccuracy)), "results - floral RF/results-accuracy-gini.csv")
+write_csv(importance_rf %>% arrange(desc(MeanDecreaseAccuracy)), "results-accuracy-gini.csv")
 
 
 # Gini decrease
@@ -111,7 +111,7 @@ a <- ggplot(importance_rf, aes(x = reorder(Variable, MeanDecreaseGini), y = Mean
   labs(x = NULL,
        y = "Mean Decrease in Gini") +
   theme_bw()
-# ggsave("results - floral RF/PLOT-Gini-decrease-RF.png", a, height = 4, width = 4, dpi = 600)
+ggsave("PLOT-Gini-decrease-RF.png", a, height = 4, width = 4, dpi = 600)
 
 # Accuracy decrease
 b <- ggplot(importance_rf, aes(x = reorder(Variable, MeanDecreaseAccuracy), y = MeanDecreaseAccuracy)) +
@@ -120,7 +120,7 @@ b <- ggplot(importance_rf, aes(x = reorder(Variable, MeanDecreaseAccuracy), y = 
   labs(x = NULL,
        y = "Mean Decrease in Accuracy") +
   theme_bw()
-# ggsave("results - floral RF/PLOT-Accuracy-decrease-RF.png", b, height = 4, width = 4, dpi = 600)
+ggsave("PLOT-Accuracy-decrease-RF.png", b, height = 4, width = 4, dpi = 600)
 
 # Relative importance
 c <- ggplot(importance_rf, aes(x = reorder(Variable, RelativeImportance), y = RelativeImportance)) +
@@ -129,7 +129,7 @@ c <- ggplot(importance_rf, aes(x = reorder(Variable, RelativeImportance), y = Re
   labs(x = NULL,
        y = "Relative Importance") +
   theme_bw()
-# ggsave("results - floral RF/PLOT-RelativeImportance-RF.pdf", c, height = 4, width = 4, dpi = 600)
+ggsave("PLOT-RelativeImportance-RF.pdf", c, height = 4, width = 4, dpi = 600)
 
 
 # # #
@@ -140,7 +140,7 @@ rf_confusion <- rf_model$confusion
 rf_confusion[1,1:2] <- rf_confusion[1,1:2]/47
 rf_confusion[2,1:2] <- rf_confusion[2,1:2]/27
 rf_confusion
-# write.csv(file = "results - floral RF/confusion-matrix-oob.csv", as.data.frame(rf_confusion))
+write.csv(file = "confusion-matrix-oob.csv", as.data.frame(rf_confusion))
 # # #
 
 # Together, these results show me which variables are most important
@@ -167,12 +167,12 @@ reduced_matrix <- admix_included %>%
                 str_to_title())
   
 pheno_corrplot <- cor(reduced_matrix, use = "pairwise.complete.obs")
-# write.csv(pheno_corrplot, file = "results - correlation matrices/phenotype-correlation-matrix-sierras-RFIMPORTANT-characters.csv")
-# png("results - correlation matrices/PLOT-correlation-RFIMPORTANT-sierras.png", units = "in", width = 5, height = 5, res = 400)
-# corrplot(pheno_corrplot, method="color", type = "upper", diag = FALSE,
-#          addCoef.col = "white", number.cex = 0.45, tl.col = "black",
-#          tl.cex = 0.6, cl.cex = 0.6)
-# dev.off()
+write.csv(pheno_corrplot, file = "phenotype-correlation-matrix-sierras-RFIMPORTANT-characters.csv")
+png("PLOT-correlation-RFIMPORTANT-sierras.png", units = "in", width = 5, height = 5, res = 400)
+corrplot(pheno_corrplot, method="color", type = "upper", diag = FALSE,
+         addCoef.col = "white", number.cex = 0.45, tl.col = "black",
+         tl.cex = 0.6, cl.cex = 0.6)
+dev.off()
 
 
 # Make a correlation matrix between only the "select" phenotypic traits that we like
@@ -188,23 +188,23 @@ reduced_matrix <- admix_included %>%
                 str_remove_all("avg") %>%
                 str_to_title())
 pheno_corrplot <- cor(reduced_matrix, use = "pairwise.complete.obs")
-# write.csv(pheno_corrplot, file = "results - correlation matrices/phenotype-correlation-matrix-sierras-SELECT-characters.csv")
-# png("results - correlation matrices/PLOT-correlation-SELECTtraits-sierras.png", units = "in", width = 5, height = 5, res = 400)
-# corrplot(pheno_corrplot, method="color", type = "upper", diag = FALSE,
-#          addCoef.col = "white", number.cex = 0.45,tl.col = "black",
-#          tl.cex = 0.6, cl.cex = 0.6)
-# dev.off()
+write.csv(pheno_corrplot, file = "phenotype-correlation-matrix-sierras-SELECT-characters.csv")
+png("PLOT-correlation-SELECTtraits-sierras.png", units = "in", width = 5, height = 5, res = 400)
+corrplot(pheno_corrplot, method="color", type = "upper", diag = FALSE,
+         addCoef.col = "white", number.cex = 0.45,tl.col = "black",
+         tl.cex = 0.6, cl.cex = 0.6)
+dev.off()
 
 
 # Make a matrix for the full set of traits, too.
 pheno_corrplot <- cor(admix_included %>% select(-c("newID", "pop", "K2", "rgb", "region", "subpopulation", "class")),
                       use = "pairwise.complete.obs")
-write.csv(pheno_corrplot, file = "results - correlation matrices/phenotype-correlation-matrix-sierras-ALL-characters.csv")
-# png("results - correlation matrices/PLOT-correlation-ALLtraits-sierras.png", units = "in", width = 7.5, height = 7.5, res = 400)
-# corrplot(pheno_corrplot, method="color", type = "upper", diag = FALSE,
-#          addCoef.col = "white", number.cex = 0.45,tl.col = "black",
-#          tl.cex = 0.6, cl.cex = 0.6)
-# dev.off()
+write.csv(pheno_corrplot, file = "phenotype-correlation-matrix-sierras-ALL-characters.csv")
+png("PLOT-correlation-ALLtraits-sierras.png", units = "in", width = 7.5, height = 7.5, res = 400)
+corrplot(pheno_corrplot, method="color", type = "upper", diag = FALSE,
+         addCoef.col = "white", number.cex = 0.45,tl.col = "black",
+         tl.cex = 0.6, cl.cex = 0.6)
+dev.off()
 
 ################################################################################
 
@@ -284,8 +284,8 @@ stitched_plots1 <- plot_grid(
   greedy = TRUE,
   rel_widths = c(1.32,1,1,1) # 2.6 for 6 classes.
 )
-# ggsave("results - ggridges/PLOT-ggridges-RFimportant-traits-CLASS.png",
-#        stitched_plots1, height = 3.75, width = 5, dpi = 600)
+ggsave("results - ggridges/PLOT-ggridges-RFimportant-traits-CLASS.png",
+       stitched_plots1, height = 3.75, width = 5, dpi = 600)
 
 ################################################################################
 
@@ -368,10 +368,8 @@ stitched_plots1 <- plot_grid(
   greedy = TRUE,
   rel_widths = c(1.32,1,1,1) # 2.6 for 6 classes.
 )
-# ggsave("results - ggridges/PLOT-ggridges-UNIMPORTANTTRAITS-CLASS.pdf", 
-#        stitched_plots1, height = 5, width = 5, dpi = 900)
-# ggsave("results - ggridges/PLOT-ggridges-UNIMPORTANTTRAITS-CLASS.png", 
-#        stitched_plots1, height = 5, width = 5, dpi = 900)
+ggsave("results - ggridges/PLOT-ggridges-UNIMPORTANTTRAITS-CLASS.pdf",
+       stitched_plots1, height = 5, width = 5, dpi = 900)
 
 ################################################################################
 
@@ -417,8 +415,8 @@ stitched_plots_LINEAR <- plot_grid(
   greedy = TRUE,
   rel_widths = c(1,1,1,1) # 2.6 for 6 classes.
 )
-# ggsave("results - regressions/PLOT-regressions-RFimportant-traits-LINEAR.png",
-#        stitched_plots_LINEAR, height = 7.5, width = 11, dpi = 600)
+ggsave("results - regressions/PLOT-regressions-RFimportant-traits-LINEAR.png",
+       stitched_plots_LINEAR, height = 7.5, width = 11, dpi = 600)
 
 
 
@@ -470,8 +468,8 @@ stitched_plots_LOGISTIC <- plot_grid(
   greedy = TRUE,
   rel_widths = c(1,1,1,1) # 2.6 for 6 classes.
 )
-# ggsave("results - regressions/PLOT-regressions-RFimportant-traits-LOGISTIC.png",
-#        stitched_plots_LOGISTIC, height = 7.5, width = 11, dpi = 600)
+ggsave("results - regressions/PLOT-regressions-RFimportant-traits-LOGISTIC.png",
+       stitched_plots_LOGISTIC, height = 7.5, width = 11, dpi = 600)
 ################################################################################
 
 
@@ -506,8 +504,8 @@ loadings <- as.data.frame(pca_result$rotation)
 eigenvalues <- pca_result$sdev^2 / sum(pca_result$sdev^2) * 100
 
 # Write the loadings and eigenvalues to a new file
-# write.csv(loadings, "results - floral PCA/loadings-allsamples-floral-pca-IMPORTANTTRAITS.csv")
-# write.csv(eigenvalues, "results - floral PCA/eigenvalues-allsamples-floral-pca-IMPORTANTTRAITS.csv", row.names = F)
+write.csv(loadings, "loadings-allsamples-floral-pca-IMPORTANTTRAITS.csv")
+write.csv(eigenvalues, "eigenvalues-allsamples-floral-pca-IMPORTANTTRAITS.csv", row.names = F)
 
 # Generate new matrix that includes PC scores
 pc_included <- pc_scores %>% 
@@ -515,37 +513,37 @@ pc_included <- pc_scores %>%
   full_join(., pca_input, by = 'newID')
 
 # Write this to disk
-# write_csv(pc_included, file = "results - floral PCA/PCA-results-IMPORTANTTRAITS.csv")
+write_csv(pc_included, file = "PCA-results-IMPORTANTTRAITS.csv")
 
 
 # Read back in if desired
-# pc_included <- read_csv("results - floral PCA/PCA-results-IMPORTANTTRAITS.csv")
-# loadings <- read.csv("results - floral PCA/loadings-allsamples-floral-pca-IMPORTANTTRAITS.csv", row.names = 1)
-# eigenvalues <- read.csv("results - floral PCA/eigenvalues-allsamples-floral-pca-IMPORTANTTRAITS.csv")[,1]
+pc_included <- read_csv("PCA-results-IMPORTANTTRAITS.csv")
+loadings <- read.csv("loadings-allsamples-floral-pca-IMPORTANTTRAITS.csv", row.names = 1)
+eigenvalues <- read.csv("eigenvalues-allsamples-floral-pca-IMPORTANTTRAITS.csv")[,1]
 
 # Plot the PCA, coloring by rgb.
-# ggplot(pc_included, aes(x = PC1, y = PC2)) +
-#   geom_point(aes(col = rgb)) +
-#   scale_color_identity() +
-#   labs(title = "Floral trait PCA -- all samples -- color point",
-#        x = paste0("PC1 (", round(eigenvalues[1],digits = 2), "% Variance)"),
-#        y = paste0("PC2 (", round(eigenvalues[2],digits = 2), "% Variance)"),
-#        col = "Parent species") +
-#   theme_bw()
-# ggsave("results - floral PCA/PLOT-floral-PCA-allsamples-RGBcolor-IMPORTANTTRAITS.png", width = 4.75, height = 4.5, dpi = 600)
+ggplot(pc_included, aes(x = PC1, y = PC2)) +
+  geom_point(aes(col = rgb)) +
+  scale_color_identity() +
+  labs(title = "Floral trait PCA -- all samples -- color point",
+       x = paste0("PC1 (", round(eigenvalues[1],digits = 2), "% Variance)"),
+       y = paste0("PC2 (", round(eigenvalues[2],digits = 2), "% Variance)"),
+       col = "Parent species") +
+  theme_bw()
+ggsave("PLOT-floral-PCA-allsamples-RGBcolor-IMPORTANTTRAITS.png", width = 4.75, height = 4.5, dpi = 600)
 
 
 # Plot the PCA, coloring by class
-# mycols <- c("newberryi"="palevioletred1", "davidsonii"="mediumorchid4", "hybrid"="mediumorchid2")
-# ggplot(pc_included, aes(x = PC1, y = PC2)) +
-#   geom_point(aes(col = class)) +
-#   scale_color_manual(values = mycols) +
-#   labs(title = "Floral trait PCA -- all samples -- class point",
-#        x = paste0("PC1 (", round(eigenvalues[1],digits = 2), "% Variance)"),
-#        y = paste0("PC2 (", round(eigenvalues[2],digits = 2), "% Variance)"),
-#        col = "Parent species") +
-#   theme_bw()
-# ggsave("results - floral PCA/PLOT-floral-PCA-allsamples-CLASScolor-IMPORTANTTRAITS.png", width = 6, height = 4.5, dpi = 600)
+mycols <- c("newberryi"="palevioletred1", "davidsonii"="mediumorchid4", "hybrid"="mediumorchid2")
+ggplot(pc_included, aes(x = PC1, y = PC2)) +
+  geom_point(aes(col = class)) +
+  scale_color_manual(values = mycols) +
+  labs(title = "Floral trait PCA -- all samples -- class point",
+       x = paste0("PC1 (", round(eigenvalues[1],digits = 2), "% Variance)"),
+       y = paste0("PC2 (", round(eigenvalues[2],digits = 2), "% Variance)"),
+       col = "Parent species") +
+  theme_bw()
+ggsave("PLOT-floral-PCA-allsamples-CLASScolor-IMPORTANTTRAITS.png", width = 6, height = 4.5, dpi = 600)
 
 
 
@@ -567,8 +565,8 @@ ggplot(pc_included, aes(x = PC1, y = PC2)) +
   # theme(legend.position.inside = "left",
   #       legend.position = c(0.15,0.25),
   #       legend.background = element_blank())
-# ggsave("results - floral PCA/PLOT-floral-PCA-allsamples-ADMIXTUREcolor-IMPORTANTTRAITS-withloadings1.pdf",
-#        width = 5.5, height = 4.5, dpi = 600)
+ggsave("PLOT-floral-PCA-allsamples-ADMIXTUREcolor-IMPORTANTTRAITS-withloadings1.pdf",
+       width = 5.5, height = 4.5, dpi = 600)
 
 
 
@@ -631,8 +629,8 @@ stitched_PC_vs_K1 <- plot_grid(
   greedy = TRUE,
   rel_widths = c(1,1)
 )
-# ggsave("results - floral PCA/PLOT-regressions-PCA-vs-K1-LOGISTIC.png",
-#        stitched_PC_vs_K1, height = 3, width = 6, dpi = 600)
+ggsave("PLOT-regressions-PCA-vs-K1-LOGISTIC.png",
+       stitched_PC_vs_K1, height = 3, width = 6, dpi = 600)
 
 
 
@@ -644,13 +642,13 @@ stitched_PC_vs_K1 <- plot_grid(
 # Separated by hybrid zone
 ################################################################################
 # Read in elevation data
-elevation_data <- read_delim("11.elevation_plots/sierras-pops-NEWelevation.txt", delim = "\t") %>%
+elevation_data <- read_delim("~/11.elevation_plots/sierras-pops-NEWelevation.txt", delim = "\t") %>%
   rename(newID = accession)
 
 # Read back PCA results
-# pc_included <- read_csv("results - floral PCA/PCA-results-IMPORTANTTRAITS.csv")
-# loadings <- read.csv("results - floral PCA/loadings-allsamples-floral-pca-IMPORTANTTRAITS.csv", row.names = 1)
-# eigenvalues <- read.csv("results - floral PCA/eigenvalues-allsamples-floral-pca-IMPORTANTTRAITS.csv")[,1]
+# pc_included <- read_csv("PCA-results-IMPORTANTTRAITS.csv")
+# loadings <- read.csv("loadings-allsamples-floral-pca-IMPORTANTTRAITS.csv", row.names = 1)
+# eigenvalues <- read.csv("eigenvalues-allsamples-floral-pca-IMPORTANTTRAITS.csv")[,1]
 
 # Merge elevation data into pc_included
 pc_included <- left_join(pc_included, elevation_data, by = "newID")
@@ -784,7 +782,7 @@ stitched_PC_regressions_split <- plot_grid(
 )
 stitched_PC_regressions_split
 
-# ggsave("results - floral PCA/PLOT-regressions-PC-regressions-GLM.pdf",
-#        stitched_PC_regressions_split, height = 6, width = 6, dpi = 600)
+ggsave("PLOT-regressions-PC-regressions-GLM.pdf",
+       stitched_PC_regressions_split, height = 6, width = 6, dpi = 600)
 
 ################################################################################

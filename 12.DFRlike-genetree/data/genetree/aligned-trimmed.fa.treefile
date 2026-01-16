@@ -1,0 +1,133 @@
+#NEXUS
+begin taxa;
+	dimensions ntax=31;
+	taxlabels
+	ANR_Arabidopsis_thaliana
+	ANR_Glycine_max
+	CANDIDATE_GENE_Buddleja_alternifolia
+	CANDIDATE_GENE_Orobanche_gracilis
+	CANDIDATE_GENE_Orobanche_minor
+	CANDIDATE_GENE_Paulownia_fortunei
+	CANDIDATE_GENE_Penstemon_barbatus
+	CANDIDATE_GENE_Penstemon_davidsonii
+	CANDIDATE_GENE_Penstemon_eatonii
+	CANDIDATE_GENE_Penstemon_smallii
+	CANDIDATE_GENE_Perilla_frutescens_var_hirtella
+	CANDIDATE_GENE_Rehmannia_glutinosa
+	CANDIDATE_GENE_Sesamum_alatum
+	DFR_Arabidopsis_thaliana
+	DFR_Buddleja_alternifolia
+	DFR_Glycine_max
+	DFR_Orobanche_gracilis
+	DFR_Orobanche_minor
+	DFR_Paulownia_fortunei
+	DFR_Penstemon_barbatus
+	DFR_Penstemon_davidsonii
+	DFR_Penstemon_eatonii
+	DFR_Penstemon_neomexicanus
+	DFR_Penstemon_smallii
+	DFR_Perilla_frutescens_var_hirtella
+	DFR_Rehmannia_glutinosa
+	DFR_Sesamum_alatum
+	NADP-binding_Rossmann-fold_top_hit_Arabidopsis_thaliana
+	cinnamoyl_coa_reductase_Arabidopsis_thaliana
+	cinnamoyl_coa_reductase_Glycine_max
+	putative_anthocyanidin_reductase_top_hit_Glycine_max
+;
+end;
+
+begin trees;
+	tree tree_1 = [&R] (cinnamoyl_coa_reductase_Arabidopsis_thaliana:0.245054,cinnamoyl_coa_reductase_Glycine_max:0.185005,((ANR_Glycine_max:0.345959,ANR_Arabidopsis_thaliana:0.496342)[&label="99.9/100"]:0.763622,(((((((((DFR_Orobanche_gracilis:0.062023,DFR_Orobanche_minor:0.029666)[&label="99.5/100"]:0.070211,DFR_Perilla_frutescens_var_hirtella:0.169989)[&label="5.9/73"]:0.018492,DFR_Rehmannia_glutinosa:0.051714)[&label="86.9/92"]:0.015182,(DFR_Paulownia_fortunei:0.03599,DFR_Sesamum_alatum:0.090357)[&label="82.9/62"]:0.013079)[&label="78.5/62"]:0.021765,DFR_Buddleja_alternifolia:0.084054)[&label="92.1/87"]:0.056671,(DFR_Penstemon_davidsonii:0.013428,((DFR_Penstemon_barbatus:0.013773,(DFR_Penstemon_eatonii:0.006941,DFR_Penstemon_neomexicanus:0.010396)[&label="78.4/94"]:0.003456)[&label="0/66"]:1.0E-6,DFR_Penstemon_smallii:0.006865)[&label="69.7/72"]:0.004004)[&label="98.3/100"]:0.078875)[&label="100/100"]:0.20794,DFR_Arabidopsis_thaliana:0.318496)[&label="88.1/96"]:0.086004,DFR_Glycine_max:0.225829)[&label="97.3/98"]:0.272525,((NADP-binding_Rossmann-fold_top_hit_Arabidopsis_thaliana:0.415059,putative_anthocyanidin_reductase_top_hit_Glycine_max:0.30809)[&label="86.8/92"]:0.098421,(((CANDIDATE_GENE_Penstemon_davidsonii:0.030562,(CANDIDATE_GENE_Penstemon_smallii:0.021396,(CANDIDATE_GENE_Penstemon_eatonii:0.003961,CANDIDATE_GENE_Penstemon_barbatus:0.008093)[&label="91.6/100"]:0.015603)[&label="65.8/84"]:0.023157)[&label="100/100"]:0.173999,(CANDIDATE_GENE_Perilla_frutescens_var_hirtella:0.213636,((CANDIDATE_GENE_Sesamum_alatum:0.134162,(CANDIDATE_GENE_Paulownia_fortunei:0.044148,CANDIDATE_GENE_Rehmannia_glutinosa:0.064109)[&label="42.3/51"]:0.010729)[&label="33.5/28"]:0.004451,(CANDIDATE_GENE_Orobanche_gracilis:0.021757,CANDIDATE_GENE_Orobanche_minor:0.014272)[&label="100/100"]:0.11547)[&label="79.3/70"]:0.027064)[&label="88.6/69"]:0.028665)[&label="32.2/33"]:0.025445,CANDIDATE_GENE_Buddleja_alternifolia:0.12492)[&label="88/93"]:0.096555)[&label="100/100"]:0.626443)[&label="52.4/82"]:0.186346)[&label="100/100"]:1.245198);
+end;
+
+begin figtree;
+	set appearance.backgroundColorAttribute="Default";
+	set appearance.backgroundColour=#ffffff;
+	set appearance.branchColorAttribute="User selection";
+	set appearance.branchColorGradient=false;
+	set appearance.branchLineWidth=2.0;
+	set appearance.branchMinLineWidth=0.0;
+	set appearance.branchWidthAttribute="Fixed";
+	set appearance.foregroundColour=#000000;
+	set appearance.hilightingGradient=false;
+	set appearance.selectionColour=#2d3680;
+	set branchLabels.colorAttribute="User selection";
+	set branchLabels.displayAttribute="Branch times";
+	set branchLabels.fontName="sansserif";
+	set branchLabels.fontSize=8;
+	set branchLabels.fontStyle=0;
+	set branchLabels.isShown=false;
+	set branchLabels.significantDigits=4;
+	set layout.expansion=0;
+	set layout.layoutType="RECTILINEAR";
+	set layout.zoom=0;
+	set legend.attribute=null;
+	set legend.fontSize=10.0;
+	set legend.isShown=false;
+	set legend.significantDigits=4;
+	set nodeBars.barWidth=4.0;
+	set nodeBars.displayAttribute=null;
+	set nodeBars.isShown=false;
+	set nodeLabels.colorAttribute="User selection";
+	set nodeLabels.displayAttribute="label";
+	set nodeLabels.fontName="sansserif";
+	set nodeLabels.fontSize=8;
+	set nodeLabels.fontStyle=0;
+	set nodeLabels.isShown=true;
+	set nodeLabels.significantDigits=4;
+	set nodeShapeExternal.colourAttribute=null;
+	set nodeShapeExternal.isShown=false;
+	set nodeShapeExternal.minSize=10.0;
+	set nodeShapeExternal.scaleType=Width;
+	set nodeShapeExternal.shapeType=Circle;
+	set nodeShapeExternal.size=4.0;
+	set nodeShapeExternal.sizeAttribute=null;
+	set nodeShapeInternal.colourAttribute=null;
+	set nodeShapeInternal.isShown=false;
+	set nodeShapeInternal.minSize=10.0;
+	set nodeShapeInternal.scaleType=Width;
+	set nodeShapeInternal.shapeType=Circle;
+	set nodeShapeInternal.size=4.0;
+	set nodeShapeInternal.sizeAttribute=null;
+	set polarLayout.alignTipLabels=false;
+	set polarLayout.angularRange=0;
+	set polarLayout.rootAngle=0;
+	set polarLayout.rootLength=100;
+	set polarLayout.showRoot=true;
+	set radialLayout.spread=0.0;
+	set rectilinearLayout.alignTipLabels=false;
+	set rectilinearLayout.curvature=0;
+	set rectilinearLayout.rootLength=100;
+	set scale.offsetAge=0.0;
+	set scale.rootAge=1.0;
+	set scale.scaleFactor=1.0;
+	set scale.scaleRoot=false;
+	set scaleAxis.automaticScale=true;
+	set scaleAxis.fontSize=8.0;
+	set scaleAxis.isShown=false;
+	set scaleAxis.lineWidth=1.0;
+	set scaleAxis.majorTicks=1.0;
+	set scaleAxis.minorTicks=0.5;
+	set scaleAxis.origin=0.0;
+	set scaleAxis.reverseAxis=false;
+	set scaleAxis.showGrid=true;
+	set scaleBar.automaticScale=true;
+	set scaleBar.fontSize=10.0;
+	set scaleBar.isShown=false;
+	set scaleBar.lineWidth=1.0;
+	set scaleBar.scaleRange=0.3;
+	set tipLabels.colorAttribute="User selection";
+	set tipLabels.displayAttribute="Names";
+	set tipLabels.fontName="Arial";
+	set tipLabels.fontSize=8;
+	set tipLabels.fontStyle=0;
+	set tipLabels.isShown=true;
+	set tipLabels.significantDigits=4;
+	set trees.order=false;
+	set trees.orderType="increasing";
+	set trees.rooting=false;
+	set trees.rootingType="User Selection";
+	set trees.transform=false;
+	set trees.transformType="cladogram";
+end;
+

@@ -1,7 +1,7 @@
 # Bayesian Genomic Clines
 
 Additionally uses data from:
-Gemma results, AFD table, 
+Gemma results, AFD table, and many other sources
 
 #### 1. Generate list of SNPs to use for genomic clines analysis
 * see [`1.select_bgchm_input_snps.R`](scripts/1.select_bgchm_input_snps.R)
